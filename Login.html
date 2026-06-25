@@ -17,7 +17,7 @@
     }
 
     .card{
-      background:#ffffff;
+      background:#fff;
       padding:30px;
       width:90%;
       max-width:400px;
@@ -28,7 +28,6 @@
 
     h1{
       color:#1565c0;
-      margin-bottom:20px;
     }
 
     input{
@@ -67,7 +66,6 @@
 <body>
 
 <div class="card">
-
   <h1>🎓 ArhamNest Academy</h1>
 
   <input
@@ -84,12 +82,9 @@
     required
   >
 
-  <button id="loginBtn">
-    Login
-  </button>
+  <button id="loginBtn">Login</button>
 
   <p id="msg"></p>
-
 </div>
 
 <script type="module">
@@ -125,10 +120,10 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
 
     await signInWithEmailAndPassword(auth, email, password);
 
-    // Save logged-in user
+    // Save logged-in email
     localStorage.setItem("userEmail", email);
 
-    // Redirect
+    // Redirect based on email
     if (email.toLowerCase().includes("parent")) {
       window.location.href = "parent.html";
     } else if (email.toLowerCase().includes("teacher")) {
@@ -138,9 +133,7 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
     }
 
   } catch (error) {
-
     msg.textContent = "❌ " + error.message;
-
   }
 
 });
