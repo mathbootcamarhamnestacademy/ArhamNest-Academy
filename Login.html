@@ -1,46 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>ArhamNest Academy Login</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArhamNest Academy - Login</title>
 
   <style>
     body{
       font-family: Arial, sans-serif;
-      background:#f5f5f5;
-      text-align:center;
-      padding:30px;
+      background:#f4f7fb;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      margin:0;
     }
 
     .card{
+      background:#fff;
+      padding:30px;
+      width:90%;
       max-width:400px;
-      margin:auto;
-      background:white;
-      padding:20px;
       border-radius:15px;
-      box-shadow:0 2px 10px rgba(0,0,0,0.2);
+      box-shadow:0 4px 15px rgba(0,0,0,0.15);
+      text-align:center;
+    }
+
+    h1{
+      color:#1565c0;
     }
 
     input{
-      width:90%;
+      width:100%;
       padding:12px;
       margin:10px 0;
-      font-size:18px;
+      font-size:16px;
+      border:1px solid #ccc;
+      border-radius:8px;
+      box-sizing:border-box;
     }
 
     button{
-      padding:12px 25px;
-      font-size:18px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
+      width:100%;
+      padding:12px;
       background:#1565c0;
       color:white;
+      border:none;
+      border-radius:8px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0d47a1;
     }
 
     #msg{
       margin-top:15px;
       color:red;
+      font-weight:bold;
     }
   </style>
 </head>
@@ -54,50 +72,55 @@
     type="email"
     id="email"
     placeholder="Enter Email"
+    required
   >
 
   <input
     type="password"
     id="password"
     placeholder="Enter Password"
+    required
   >
 
-  <button onclick="login()">Login</button>
+  <button id="loginBtn">
+    Login
+  </button>
 
   <p id="msg"></p>
 </div>
 
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
 import {
   getAuth,
   signInWithEmailAndPassword
-} from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
+  apiKey: "AIzaSyArYnOe3B9CX0IuETghXY6VcPf0WZwrxsU",
   authDomain: "arhamnest-academy.firebaseapp.com",
   projectId: "arhamnest-academy",
   storageBucket: "arhamnest-academy.firebasestorage.app",
   messagingSenderId: "312150558789",
-  appId: "YOUR_APP_ID"
+  appId: "1:312150558789:web:532a544739f2f524a7bb2c",
+  measurementId: "G-GT5NPV4XJB"
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-window.login = async function () {
+document.getElementById("loginBtn").addEventListener("click", async () => {
 
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
+  const msg = document.getElementById("msg");
+
+  msg.textContent = "";
 
   try {
 
-    await signInWithEmailAndPassword(
-      auth,
-      email,
-      password
-    );
+    await signInWithEmailAndPassword(auth, email, password);
 
     if (email.toLowerCase().includes("parent")) {
       window.location.href = "parent.html";
@@ -108,11 +131,11 @@ window.login = async function () {
     }
 
   } catch (error) {
-    document.getElementById("msg").innerText =
-      "Login Failed: " + error.message;
+    msg.textContent = "❌ " + error.message;
   }
 
-};
+});
+
 </script>
 
 </body>
