@@ -4,47 +4,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f7fb;
+      margin:0;
+      padding:0;
+    }
+
+    header{
+      background:#1565c0;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:20px auto;
+      background:white;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      color:#1565c0;
+    }
+
+    .card{
+      background:#f8f9fa;
+      padding:15px;
+      margin:10px 0;
+      border-radius:10px;
+      border-left:5px solid #1565c0;
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+      margin-top:10px;
+      font-size:16px;
+      border:none;
+      border-radius:8px;
+      background:#1565c0;
+      color:white;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0d47a1;
+    }
+  </style>
 </head>
+
 <body>
 
-<header style="background:#1565c0;color:white;padding:20px;text-align:center;">
+<header>
   <h1>🎓 Student Dashboard</h1>
 </header>
 
-<div style="max-width:700px;margin:auto;padding:20px;">
+<div class="container">
 
-  <h2 id="welcome">Welcome, Student!</h2>
+  <h2 id="welcome">Welcome!</h2>
 
-  <p>🏆 Current Level: <strong>1</strong></p>
-  <p>⭐ Total Points: <strong>0</strong></p>
-  <p>📚 Worksheets Completed: <strong>0</strong></p>
+  <div class="card">
+    🏆 <strong>Current Level:</strong> Finger Abacus Level 0
+  </div>
 
-  <button onclick="location.href='worksheets.html'"
-          style="width:100%;padding:15px;margin:10px 0;">
-    📖 Continue Worksheets
+  <div class="card">
+    ⭐ <strong>Total Points:</strong> 0
+  </div>
+
+  <div class="card">
+    📚 <strong>Worksheets Completed:</strong> 0
+  </div>
+
+  <button onclick="window.location.href='worksheets.html'">
+    📖 Start Worksheets
   </button>
 
-  <button onclick="location.href='mental-math.html'"
-          style="width:100%;padding:15px;margin:10px 0;">
+  <button onclick="window.location.href='Practice.html'">
+    🧮 Practice Questions
+  </button>
+
+  <button onclick="window.location.href='mental-math.html'">
     🧠 Mental Math
   </button>
 
-  <button onclick="location.href='index.html'"
-          style="width:100%;padding:15px;">
-    🏠 Back to Home
+  <button onclick="logout()">
+    🚪 Logout
   </button>
 
 </div>
 
 <script>
-  const email = localStorage.getItem("userEmail");
+const email = localStorage.getItem("userEmail");
 
-  if (email) {
-    const name = email.split("@")[0];
-    document.getElementById("welcome").innerText =
-      "Welcome, " + name + "!";
-  }
+if (email) {
+  const username = email.split("@")[0];
+  document.getElementById("welcome").innerText =
+    "Welcome, " + username + "!";
+}
+
+function logout() {
+  localStorage.removeItem("userEmail");
+  window.location.href = "Login.html";
+}
 </script>
 
 </body>
