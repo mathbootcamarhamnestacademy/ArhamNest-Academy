@@ -1,0 +1,13 @@
+// ArhamNest Academy Worksheet Data
+
+const worksheetLevels = {
+  level0: {
+    name: "Finger Abacus Level 0",
+    description: "Addition and subtraction without regrouping"
+  }
+};
+
+const mentalMathRounds = {
+  round1: ["10+11", "10+12", "10+13", "10+14", "10+15", "10+16", "10+17", "10+18", "10+19"],
+  round2: ["11+11", "11+12", "11+13", "11+14", "11+15", "11+16", "11+17", "11+18"]
+};
