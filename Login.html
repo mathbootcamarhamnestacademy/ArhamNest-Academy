@@ -121,8 +121,9 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   try {
 
     await signInWithEmailAndPassword(auth, email, password);
+    localStorage.setItem("userEmail", email);
 
-    if (email.toLowerCase().includes("parent")) {
+ if (email.toLowerCase().includes("parent")) {
       window.location.href = "parent.html";
     } else if (email.toLowerCase().includes("teacher")) {
       window.location.href = "teacher.html";
