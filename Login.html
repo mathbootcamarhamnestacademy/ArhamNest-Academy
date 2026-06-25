@@ -121,15 +121,18 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
   try {
 
     await signInWithEmailAndPassword(auth, email, password);
-    localStorage.setItem("userEmail", email);
 
- if (email.toLowerCase().includes("parent")) {
-      window.location.href = "parent.html";
-    } else if (email.toLowerCase().includes("teacher")) {
-      window.location.href = "teacher.html";
-    } else {
-      window.location.href = "student.html";
-    }
+// Save the logged-in email for use on other pages
+localStorage.setItem("userEmail", email);
+
+// Redirect based on role
+if (email.toLowerCase().includes("parent")) {
+  window.location.href = "parent.html";
+} else if (email.toLowerCase().includes("teacher")) {
+  window.location.href = "teacher.html";
+} else {
+  window.location.href = "student.html";
+}
 
   } catch (error) {
     msg.textContent = "❌ " + error.message;
