@@ -4,67 +4,95 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArhamNest Academy</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f4f7fb;
+      margin:0;
+      padding:0;
+    }
+
+    header{
+      background:#1565c0;
+      color:white;
+      text-align:center;
+      padding:30px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:30px auto;
+      background:white;
+      padding:20px;
+      border-radius:12px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    h2{
+      color:#1565c0;
+    }
+
+    button{
+      width:100%;
+      padding:15px;
+      margin:10px 0;
+      font-size:18px;
+      border:none;
+      border-radius:8px;
+      background:#1565c0;
+      color:white;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0d47a1;
+    }
+
+    footer{
+      text-align:center;
+      padding:20px;
+      color:#666;
+    }
+  </style>
 </head>
 
 <body>
 
-<header style="background:#1565c0;color:white;text-align:center;padding:30px;">
+<header>
   <h1>🧮 ArhamNest Academy</h1>
   <p>Finger Abacus & Mental Math Learning Platform</p>
 </header>
 
-<main>
-  <div style="max-width:700px;margin:auto;padding:20px;">
+<div class="container">
 
-    <h2>Welcome!</h2>
-    <p>Choose an option below:</p>
+  <h2>Welcome!</h2>
+  <p>Choose an option below:</p>
 
-    <a href="worksheets.html">
-      <button style="width:100%;padding:15px;font-size:18px;">
-        📚 Start Worksheets
-      </button>
-    </a>
+  <button onclick="window.location.href='worksheets.html'">
+    📚 Start Worksheets
+  </button>
 
-    <br><br>
+  <button onclick="window.location.href='mental-math.html'">
+    🧠 Mental Math
+  </button>
 
-    <a href="mental-math.html">
-      <button style="width:100%;padding:15px;font-size:18px;" disabled>
-        🧠 Mental Math (Locked)
-      </button>
-    </a>
+  <!-- IMPORTANT: Go to Login.html, NOT student.html -->
+  <button onclick="window.location.href='Login.html'">
+    🎓 Student Login
+  </button>
 
-    <br><br>
+  <button onclick="window.location.href='teacher.html'">
+    👨‍🏫 Teacher Login
+  </button>
 
-    <!-- Student goes to Login page first -->
-    <a href="Login.html">
-      <button style="width:100%;padding:15px;font-size:18px;">
-        🎓 Student Login
-      </button>
-    </a>
+  <button onclick="window.location.href='parent.html'">
+    👨‍👩‍👧 Parent Login
+  </button>
 
-    <br><br>
+</div>
 
-    <!-- Teacher goes to Login page -->
-    <a href="Login.html">
-      <button style="width:100%;padding:15px;font-size:18px;">
-        👨‍🏫 Teacher Login
-      </button>
-    </a>
-
-    <br><br>
-
-    <!-- Parent goes to Login page -->
-    <a href="Login.html">
-      <button style="width:100%;padding:15px;font-size:18px;">
-        👨‍👩‍👧 Parent Login
-      </button>
-    </a>
-
-  </div>
-</main>
-
-<footer style="text-align:center;padding:20px;color:#666;">
+<footer>
   © 2026 ArhamNest Academy
 </footer>
 
