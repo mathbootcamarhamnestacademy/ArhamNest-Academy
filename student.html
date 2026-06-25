@@ -14,31 +14,38 @@
 
 <div style="max-width:700px;margin:auto;padding:20px;">
 
-  <h2>Welcome, Arham!</h2>
+  <h2 id="welcome">Welcome, Student!</h2>
 
   <p>🏆 Current Level: <strong>1</strong></p>
   <p>⭐ Total Points: <strong>0</strong></p>
   <p>📚 Worksheets Completed: <strong>0</strong></p>
 
-  <button
-    onclick="location.href='worksheets.html'"
-    style="width:100%;padding:15px;margin:10px 0;">
+  <button onclick="location.href='worksheets.html'"
+          style="width:100%;padding:15px;margin:10px 0;">
     📖 Continue Worksheets
   </button>
 
-  <button
-    onclick="location.href='mental-math.html'"
-    style="width:100%;padding:15px;margin:10px 0;">
+  <button onclick="location.href='mental-math.html'"
+          style="width:100%;padding:15px;margin:10px 0;">
     🧠 Mental Math
   </button>
 
-  <button
-    onclick="location.href='index.html'"
-    style="width:100%;padding:15px;">
+  <button onclick="location.href='index.html'"
+          style="width:100%;padding:15px;">
     🏠 Back to Home
   </button>
 
 </div>
+
+<script>
+  const email = localStorage.getItem("userEmail");
+
+  if (email) {
+    const name = email.split("@")[0];
+    document.getElementById("welcome").innerText =
+      "Welcome, " + name + "!";
+  }
+</script>
 
 </body>
 </html>
